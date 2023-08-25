@@ -1,6 +1,6 @@
 from xml.dom import minidom
 
-myTree = minidom.parse("sy&sdf&ct.xml")
+myTree = minidom.parse("ltl.xml")
 group= myTree.documentElement
 tr=group.getElementsByTagName('template')
 golbal_variables = myTree.getElementsByTagName('declaration')
