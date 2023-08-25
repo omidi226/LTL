@@ -29,35 +29,40 @@ for t in tr :
     # print(f"LENTGH OF TRACE IS : {lentgh}")
     # print(f"LTL Fromula: {LTL}")
     if LTL == "P":
-        file.write(f"q[0]=1;")
-        print(f"q[0]=1;")
-        file.write('\n')
+        file.write(f"predicate P ( array[0..{lentgh}] of var 0..1:q)=\nq[0]=1;")
+        print(f"predicate P ( array[0..{lentgh}] of var 0..1:q)=q[0]=1;")
+        file.write('\n\n')
     if LTL == "G":
-        file.write(f"constraint forall (i in 0..{lentgh})(q[i]=1);")
-        print(f"constraint forall (i in 0..{lentgh})(q[i]=1);")
+        file.write(f"predicate G( array[0..{lentgh}] of var 0..1:q)=\nforall (i in 0..{lentgh})(q[i]=1);")
+        print(f"predicate G( array[0..{lentgh}] of var 0..1:q)= forall (i in 0..{lentgh})(q[i]=1);")
 
-        file.write('\n')
+        file.write('\n\n')
 
 
     if LTL == "F":
-        file.write(f"constraint exists (i in 0..{lentgh})(q[i]=1);")
-        print(f"constraint exists (i in 0..{lentgh})(q[i]=1);")
-        file.write('\n')
+        file.write(f"predicate F( array[0..{lentgh}] of var 0..1:q)= \nexists (i in 0..{lentgh})(q[i]=1);")
+        print(f"predicate F( array[0..{lentgh}] of var 0..1:q)= exists (i in 0..{lentgh})(q[i]=1);")
+        file.write('\n\n')
     if LTL == "X":
-        file.write(f"q[1]=1;")
-        print(f"q[1]=1;")
-        file.write('\n')
+        file.write(f"predicate X( array[0..{lentgh}] of var 0..1:q)=\nq[1]=1;")
+        print(f"predicate X( array[0..{lentgh}] of var 0..1:q)=q[1]=1;")
+        file.write('\n\n')
     if LTL == "U":
-         file.write(f"constraint exists(j in 0..n) (forall(i in 0..j-1)((q2[i] =1 and q1[j]=1) ));")
-         print(f"constraint exists(j in 0..n) (forall(i in 0..j-1)((q2[i] =1 and q1[j]=1) ));")
-         file.write('\n')
+         file.write(f"predicate U( array[0..{lentgh}] of var 0..1:q1,array[0..{lentgh}] of var 0..1:q2)=\n"
+                    f" exists(j in 0..n) (forall(i in 0..j-1)((q2[i] =1 and q1[j]=1) ));")
+         print(f"predicate U( array[0..{lentgh}] of var 0..1:q1,array[0..{lentgh}] of var 0..1:q2)="
+               f"exists(j in 0..n) (forall(i in 0..j-1)((q2[i] =1 and q1[j]=1) ));")
+         file.write('\n\n')
     if LTL == "GF":
-        file.write(f"constraint exists(j in 0..n) (forall(i in j+1..n)((q[i] =1 /\ q[j]=1) ));")
-        print(f"constraint exists(j in 0..n) (forall(i in j+1..n)((q[i] =1 /\ q[j]=1) ));")
-        file.write('\n')
+        file.write(f"predicate GF( array[0..{lentgh}] of var 0..1:q)=\n"
+                   f" exists(j in 0..n) (forall(i in j+1..n)((q[i] =1 /\ q[j]=1) ));")
+        print(f"predicate GF( array[0..{lentgh}] of var 0..1:q)="
+              f"exists(j in 0..n) (forall(i in j+1..n)((q[i] =1 /\ q[j]=1) ));")
+        file.write('\n\n')
     if LTL == "FG":
-        file.write(f"constraint forall(j in 0..n) (exists(i in j+1..n)((q[i] =1 /\ q[j]=1) ));")
-        print(f"constraint forall(j in 0..n) (exists(i in j+1..n)((q[i] =1 /\ q[j]=1) ));")
+        file.write(f"predicate FG( array[0..{lentgh}] of var 0..1:q)= \n"
+                   f"forall(j in 0..n) (exists(i in j+1..n)((q[i] =1 /\ q[j]=1) ));")
+        print(f"predicate FG( array[0..{lentgh}] of var 0..1:q)= forall(j in 0..n) (exists(i in j+1..n)((q[i] =1 /\ q[j]=1) ));")
 
 print("------------------------------------------------------------")
 

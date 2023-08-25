@@ -1,7 +1,20 @@
+predicate P ( array[0..10] of var 0..1:q)=
 q[0]=1;
-constraint forall (i in 0..10)(q[i]=1);
-constraint exists (i in 0..6)(q[i]=1);
+
+predicate G( array[0..10] of var 0..1:q)=
+forall (i in 0..10)(q[i]=1);
+
+predicate F( array[0..6] of var 0..1:q)= 
+exists (i in 0..6)(q[i]=1);
+
+predicate X( array[0..5] of var 0..1:q)=
 q[1]=1;
-constraint exists(j in 0..n) (forall(i in 0..j-1)((q2[i] =1 and q1[j]=1) ));
-constraint exists(j in 0..n) (forall(i in j+1..n)((q[i] =1 /\ q[j]=1) ));
-constraint forall(j in 0..n) (exists(i in j+1..n)((q[i] =1 /\ q[j]=1) ));
+
+predicate U( array[0..10] of var 0..1:q1,array[0..10] of var 0..1:q2)=
+ exists(j in 0..n) (forall(i in 0..j-1)((q2[i] =1 and q1[j]=1) ));
+
+predicate GF( array[0..5] of var 0..1:q)=
+ exists(j in 0..n) (forall(i in j+1..n)((q[i] =1 /\ q[j]=1) ));
+
+predicate FG( array[0..8] of var 0..1:q)= 
+forall(j in 0..n) (exists(i in j+1..n)((q[i] =1 /\ q[j]=1) ));
