@@ -11,10 +11,10 @@ predicate X( array[0..5] of var 0..1:q)=
 q[1]=1;
 
 predicate U( array[0..10] of var 0..1:q1,array[0..10] of var 0..1:q2)=
- exists(j in 0..n) (forall(i in 0..j-1)((q2[i] =1 and q1[j]=1) ));
+ exists(j in 0..10) (forall(i in 0..j-1)((q2[i] =1 and q1[j]=1) ));
 
-predicate GF( array[0..5] of var 0..1:q)=
- exists(j in 0..n) (forall(i in j+1..n)((q[i] =1 /\ q[j]=1) ));
+predicate GF( array[0..15] of var 0..1:q)=
+ exists(j in 0..15) (forall(i in j+1..15)((q[i] =1 /\ q[j]=1) ));
 
-predicate FG( array[0..8] of var 0..1:q)= 
-forall(j in 0..n) (exists(i in j+1..n)((q[i] =1 /\ q[j]=1) ));
+predicate FG( array[0..15] of var 0..1:q)= 
+forall(j in 0..15) (exists(i in j+1..15)((q[i] =1 /\ q[j]=1) ));

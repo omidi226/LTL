@@ -49,7 +49,7 @@
 		<name >n5</name>
 		<declaration>// Place local declarations here.</declaration>
 				<transition>
-			<label kind="Lentgh" >5</label>
+			<label kind="Lentgh" >15</label>
 			<label kind="LTL">GF</label>
 		</transition>
 	</template>
@@ -57,7 +57,7 @@
 		<name >n6</name>
 		<declaration>// Place local declarations here.</declaration>
 				<transition>
-			<label kind="Lentgh" >8</label>
+			<label kind="Lentgh" >15</label>
 			<label kind="LTL">FG</label>
 		</transition>
 	</template>

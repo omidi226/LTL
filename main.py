@@ -49,20 +49,21 @@ for t in tr :
         file.write('\n\n')
     if LTL == "U":
          file.write(f"predicate U( array[0..{lentgh}] of var 0..1:q1,array[0..{lentgh}] of var 0..1:q2)=\n"
-                    f" exists(j in 0..n) (forall(i in 0..j-1)((q2[i] =1 and q1[j]=1) ));")
+                    f" exists(j in 0..{lentgh}) (forall(i in 0..j-1)((q2[i] =1 and q1[j]=1) ));")
          print(f"predicate U( array[0..{lentgh}] of var 0..1:q1,array[0..{lentgh}] of var 0..1:q2)="
-               f"exists(j in 0..n) (forall(i in 0..j-1)((q2[i] =1 and q1[j]=1) ));")
+               f"exists(j in 0..{lentgh}) (forall(i in 0..j-1)((q2[i] =1 and q1[j]=1) ));")
          file.write('\n\n')
     if LTL == "GF":
         file.write(f"predicate GF( array[0..{lentgh}] of var 0..1:q)=\n"
-                   f" exists(j in 0..n) (forall(i in j+1..n)((q[i] =1 /\ q[j]=1) ));")
+                   f" exists(j in 0..{lentgh}) (forall(i in j+1..{lentgh})((q[i] =1 /\ q[j]=1) ));")
         print(f"predicate GF( array[0..{lentgh}] of var 0..1:q)="
-              f"exists(j in 0..n) (forall(i in j+1..n)((q[i] =1 /\ q[j]=1) ));")
+              f"exists(j in 0..{lentgh}) (forall(i in j+1..{lentgh})((q[i] =1 /\ q[j]=1) ));")
         file.write('\n\n')
     if LTL == "FG":
         file.write(f"predicate FG( array[0..{lentgh}] of var 0..1:q)= \n"
-                   f"forall(j in 0..n) (exists(i in j+1..n)((q[i] =1 /\ q[j]=1) ));")
-        print(f"predicate FG( array[0..{lentgh}] of var 0..1:q)= forall(j in 0..n) (exists(i in j+1..n)((q[i] =1 /\ q[j]=1) ));")
+                   f"forall(j in 0..{lentgh}) (exists(i in j+1..{lentgh})((q[i] =1 /\ q[j]=1) ));")
+        print(f"predicate FG( array[0..{lentgh}] of var 0..1:q)= "
+              f"forall(j in 0..{lentgh}) (exists(i in j+1..{lentgh})((q[i] =1 /\ q[j]=1) ));")
 
 print("------------------------------------------------------------")
 
