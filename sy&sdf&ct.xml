@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+
+</declaration>
+	<template>
+		<name >n</name>
+		<declaration>// Place local declarations here.</declaration>
+				<transition>
+			<label kind="Lentgh" >10</label>
+			<label kind="LTL">P</label>
+		</transition>
+	</template>
+
+	<template>
+		<name >n1</name>
+		<declaration>// Place local declarations here.</declaration>
+				<transition>
+			<label kind="Lentgh" >10</label>
+			<label kind="LTL">G</label>
+		</transition>
+	</template>
+	<template>
+		<name >n2</name>
+		<declaration>// Place local declarations here.</declaration>
+				<transition>
+			<label kind="Lentgh" >6</label>
+			<label kind="LTL">F</label>
+		</transition>
+	</template>
+	<template>
+		<name >n3</name>
+		<declaration>// Place local declarations here.</declaration>
+				<transition>
+			<label kind="Lentgh" >5</label>
+			<label kind="LTL">X</label>
+		</transition>
+	</template>
+	<template>
+		<name >n4</name>
+		<declaration>// Place local declarations here.</declaration>
+				<transition>
+			<label kind="Lentgh" >10</label>
+			<label kind="LTL">U</label>
+		</transition>
+	</template>
+	<template>
+		<name >n5</name>
+		<declaration>// Place local declarations here.</declaration>
+				<transition>
+			<label kind="Lentgh" >5</label>
+			<label kind="LTL">GF</label>
+		</transition>
+	</template>
+	<template>
+		<name >n6</name>
+		<declaration>// Place local declarations here.</declaration>
+				<transition>
+			<label kind="Lentgh" >8</label>
+			<label kind="LTL">FG</label>
+		</transition>
+	</template>
+
+	</nta>
+
