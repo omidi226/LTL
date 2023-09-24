@@ -5,29 +5,13 @@ group= myTree.documentElement
 tr=group.getElementsByTagName('template')
 golbal_variables = myTree.getElementsByTagName('declaration')
 file = open ("mycode.txt", 'w')
-# print("---------- global variables--------------------:")
-# for x in golbal_variables:
-#     print(x.firstChild.data)
-# print("-----------------------------------------------:")
 for t in tr :
     name= t.getElementsByTagName('name')[0].childNodes[0].nodeValue
-    # transitions= t.getElementsByTagName('transition')[0].childNodes[0].nodeValue
-    # source= t.getElementsByTagName('source')
-    # destination= t.getElementsByTagName('target')
     lentgh = t.getElementsByTagName('label')[0].childNodes[0].nodeValue
     LTL= t.getElementsByTagName('label')[1].childNodes[0].nodeValue
 
 
     print("-------------------------MINIZINC CODE----------------------")
-    # print(f"Name: {name}")
-
-    #    ref= s.getAttribute("ref")
-    #    print(f"Source: {ref}")
-    # for tr in destination:
-    #     d = tr.getAttribute("ref")
-    #     print(f"Destination: {d}")
-    # print(f"LENTGH OF TRACE IS : {lentgh}")
-    # print(f"LTL Fromula: {LTL}")
     if LTL == "P":
         file.write(f"predicate P ( array[0..{lentgh}] of var 0..1:q)=\nq[0]=1;")
         print(f"predicate P ( array[0..{lentgh}] of var 0..1:q)=q[0]=1;")
@@ -37,8 +21,6 @@ for t in tr :
         print(f"predicate G( array[0..{lentgh}] of var 0..1:q)= forall (i in 0..{lentgh})(q[i]=1);")
 
         file.write('\n\n')
-
-
     if LTL == "F":
         file.write(f"predicate F( array[0..{lentgh}] of var 0..1:q)= \nexists (i in 0..{lentgh})(q[i]=1);")
         print(f"predicate F( array[0..{lentgh}] of var 0..1:q)= exists (i in 0..{lentgh})(q[i]=1);")
